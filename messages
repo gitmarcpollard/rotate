@@ -2,60 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rotating Messages</title>
+  <title>Rotating Web Pages</title>
   <style>
-    body {
-      background-color: #222;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 20vh;
-      font-size: 3em;
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
     }
-    a {
-      color: #00f;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <a id="message" href="#" target="_blank"></a>
+  <iframe id="rotatingFrame" src=""></iframe>
 
   <script>
-    const messages = [
-      {
-        text: "Support the 2025 Annual Catholic Appeal",
-        url: "https://archseattle.org/give-serve/giving-opportunities/annual-catholic-appeal/aca-2025/"
-      },
-      {
-        text: "Read the latest St. Edward parish bulletin",
-        url: "https://parishesonline.com/publication-page/st-edward-church-98118?selectedPublication=https://container.parishesonline.com/bulletins/05/1502/20250518B.pdf"
-      },
-      {
-        text: "Visit our parish homepage",
-        url: "https://stedwardparish.net" // Optional third message — update or replace as needed
-      }
+    const urls = [
+      "https://archseattle.org/give-serve/giving-opportunities/annual-catholic-appeal/aca-2025/",
+      "https://parishesonline.com/publication-page/st-edward-church-98118?selectedPublication=https://container.parishesonline.com/bulletins/05/1502/20250518B.pdf"
     ];
 
     let currentIndex = 0;
-    const messageEl = document.getElementById("message");
+    const frame = document.getElementById("rotatingFrame");
 
-    function showMessage(index) {
-      messageEl.textContent = messages[index].text;
-      messageEl.href = messages[index].url;
+    function rotatePages() {
+      frame.src = urls[currentIndex];
+      currentIndex = (currentIndex + 1) % urls.length;
     }
 
-    function rotateMessages() {
-      showMessage(currentIndex);
-      currentIndex = (currentIndex + 1) % messages.length;
-    }
-
-    // Initial display and start rotation
-    rotateMessages();
-    setInterval(rotateMessages, 10000); // rotate every 10 seconds
+    rotatePages(); // Show the first page immediately
+    setInterval(rotatePages, 15000); // Rotate every 15 seconds
   </script>
 </body>
 </html>
