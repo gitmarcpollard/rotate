@@ -26,9 +26,18 @@
 
   <script>
     const messages = [
-      { text: "Visit our donation page", url: "https://example.com/donate" },
-      { text: "Learn about our mission", url: "https://example.com/mission" },
-      { text: "Volunteer with us", url: "https://example.com/volunteer" }
+      {
+        text: "Support the 2025 Annual Catholic Appeal",
+        url: "https://archseattle.org/give-serve/giving-opportunities/annual-catholic-appeal/aca-2025/"
+      },
+      {
+        text: "Read the latest St. Edward parish bulletin",
+        url: "https://parishesonline.com/publication-page/st-edward-church-98118?selectedPublication=https://container.parishesonline.com/bulletins/05/1502/20250518B.pdf"
+      },
+      {
+        text: "Visit our parish homepage",
+        url: "https://stedwardparish.net" // Optional third message — update or replace as needed
+      }
     ];
 
     let currentIndex = 0;
@@ -44,9 +53,9 @@
       currentIndex = (currentIndex + 1) % messages.length;
     }
 
-    // Show the first message and start rotating every 10 seconds
+    // Initial display and start rotation
     rotateMessages();
-    setInterval(rotateMessages, 10000); // change message every 10 seconds
+    setInterval(rotateMessages, 10000); // rotate every 10 seconds
   </script>
 </body>
 </html>
