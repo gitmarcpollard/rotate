@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rotating Messages</title>
+  <style>
+    body {
+      background-color: #222;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 20vh;
+      font-size: 3em;
+    }
+    a {
+      color: #00f;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <a id="message" href="#" target="_blank"></a>
+
+  <script>
+    const messages = [
+      { text: "Visit our donation page", url: "https://example.com/donate" },
+      { text: "Learn about our mission", url: "https://example.com/mission" },
+      { text: "Volunteer with us", url: "https://example.com/volunteer" }
+    ];
+
+    let currentIndex = 0;
+    const messageEl = document.getElementById("message");
+
+    function showMessage(index) {
+      messageEl.textContent = messages[index].text;
+      messageEl.href = messages[index].url;
+    }
+
+    function rotateMessages() {
+      showMessage(currentIndex);
+      currentIndex = (currentIndex + 1) % messages.length;
+    }
+
+    // Show the first message and start rotating every 10 seconds
+    rotateMessages();
+    setInterval(rotateMessages, 10000); // change message every 10 seconds
+  </script>
+</body>
+</html>
