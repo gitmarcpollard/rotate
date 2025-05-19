@@ -41,3 +41,6 @@
   </script>
 </body>
 </html>
+git add .
+git commit -m "Add rotating screen HTML"
+git push origin main
